@@ -1,0 +1,112 @@
+// styles/RegisterLogin.scss
+
+.register-login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75); // Fondo oscuro con opacidad
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in-out; // Animación de entrada
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .register-login-card {
+    background: #484848; // Color ajustado para mejorar el contraste
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); // Sombra más pronunciada
+    animation: slideIn 0.5s ease-in-out; // Animación de deslizamiento
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .form-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #EAEAEA; // Color más claro para el título
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #F0F0F0; // Color más claro para mejor legibilidad
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; // Borde más claro
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    background-color: #333; // Fondo más oscuro
+    color: #FFF; // Texto blanco para contraste
+  }
+  
+  .submit-button, .close-button {
+    width: 100%;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  
+    &:hover {
+      transform: scale(1.05); // Efecto de crecimiento al pasar el mouse
+    }
+  }
+  
+  .submit-button {
+    background-color: #008CFF; // Azul más vibrante
+    &:hover {
+      background-color: #0072E5;
+    }
+  }
+  
+  .close-button {
+    background-color: #747d88; // Gris más suave
+    margin-top: 8px;
+    &:hover {
+      background-color: #5f6770;
+    }
+  }
+  
+  .toggle-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    color: #00A6FF; // Azul más claro para el botón de alternancia
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      text-decoration: underline;
+    }
+  }

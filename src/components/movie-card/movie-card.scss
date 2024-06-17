@@ -1,0 +1,64 @@
+@use "../../scss/" as *;
+
+.movie-card {
+    position: relative;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 160%;
+    border-radius: $border-radius;
+    margin-bottom: 1rem;
+
+    .description {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        color: $white;
+        text-align: center;
+        width: 80%;
+        max-height: 52%;
+        overflow: hidden; /* Mantiene el contenido oculto que excede el max-height */
+        transition: transform 0.3s ease;
+        border-radius: $border-radius-small;
+        padding: 0.5rem;
+        display: block; /* Asegura que el contenedor se comporte como un bloque */
+    }
+
+    .small {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        color: $white;
+        text-align: center;
+        width: 80%;
+        transition: transform 0.3s ease;
+        border-radius: $border-radius-small;
+        padding: 0.5rem;
+        display: block;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: $black;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: $border-radius;
+    }
+    
+    @media (hover: hover) and (pointer: fine) {
+        &:hover::before {
+            opacity: 0.8;
+        }
+        &:hover .small,
+        &:hover .description {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+}

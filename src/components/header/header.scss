@@ -1,0 +1,198 @@
+@use "../../scss/" as *;
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 600;
+
+    @include flex(center, unset);
+
+    img {
+        margin-right: 10px;
+        width: 50px;
+
+        @include mobile {
+            width: 30px;
+            margin-right: 0;
+        }
+    }
+}
+
+.header {
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    transition: height 0.3s ease, background-color 0.3s ease;
+
+    &.shrink {
+        height: $header-shrink-height;
+        background-color: $body-bg;
+    }
+
+    &__wrap {
+        @include flex(center, space-between);
+        height: 100%;
+        padding: 0 2rem;
+
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &__nav {
+        @include flex(center, unset);
+
+        &>*~* {
+            margin-left: 2rem;
+        }
+
+        li {
+            padding: 5px 0;
+            position: relative;
+            font-size: 1.5rem;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                transition: width 0.5s ease;
+                height: 2px;
+                background-color: $main-color;
+            }
+
+            &.active::after,
+            &:hover::after {
+                width: 100%;
+            }
+        }
+
+        .no-animation {
+            padding: 5px 20px !important; // Mantén o ajusta según sea necesario
+            font-weight: 700 !important; // Mantén o ajusta según sea necesario
+            font-size: 1.5rem !important; // Mantén o ajusta según sea necesario
+
+            &::after {
+                content: none !important; // Elimina el pseudo-elemento
+                width: 0 !important; // Asegura que no se muestre
+                height: 0 !important; // Asegura que no se muestre
+                background-color: transparent !important; // Asegura que no se muestre
+            }
+
+            &:hover::after,
+            &.active::after {
+                width: 0 !important; // Previene cualquier cambio en hover o active
+            }
+        }
+
+        .force-text-white {
+            color: white !important;
+        }
+
+        @include mobile {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 5rem;
+            width: 100%;
+            background-color: $body-bg;
+            padding: 0 2rem;
+            box-shadow: $box-shadow;
+
+            @include flex(center, space-between);
+
+            &>*~* {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .blue-box {
+        background-color: $main-color;
+        padding: 1.5rem;
+        color: $txt-color;
+        font-weight: 700;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+
+        &:hover {
+            background-color: $main-color-light;
+        }
+
+
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: space-between; // Ajustado para separar los elementos
+        align-items: center; // Ajustado para centrar verticalmente los elementos
+        height: 100%;
+        padding: 0 2rem;
+
+        @include mobile {
+            justify-content: center;
+        }
+
+        .submenu {
+            position: absolute;
+            left: 95%; // Centra el submenu respecto al contenedor padre
+            transform: translateX(-90%); // Ajusta el submenu para que esté centrado exactamente
+            width: auto; // Asegúrate de que esto no esté causando el problema
+            max-width: 100%; // Limita el ancho máximo para evitar que se extienda demasiado
+            background-color: $body-bg ;
+
+            @include mobile {
+                left: 50%; // Centra el submenu respecto al contenedor padre
+                transform: translateX(-50%); // Ajusta el submenu para que esté centrado exactamente
+                width: auto; // O ajusta según la necesidad específica de diseño
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    padding: 1rem;
+                    font-size: 1.5rem; // Ajusta el tamaño de fuente para los elementos de la lista
+                    color: $txt-color; // Ajusta el color del texto según tu paleta de colores
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $main-color-light; // Cambia el color de fondo en hover según sea necesario
+                    }
+
+                    div {
+                        font-size: small;
+                        white-space: nowrap; // Evita que el texto se divida en varias líneas
+
+                        @include mobile {
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                            width: auto;
+                            border-radius: 0.5rem;
+                        }
+                    }
+                }
+            }
+
+            @include mobile {
+                top: 100%; // Posiciona el submenu justo debajo del .blue-box
+                left: 50%; // Centra el submenu respecto al .blue-box
+                transform: translateX(-50%) translateY(-100%); // Ajusta el submenu para que esté centrado exactamente
+                width: auto; // O ajusta según la necesidad específica de diseño
+            }
+        }
+    }
+}

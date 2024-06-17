@@ -1,0 +1,29 @@
+.user-reviews-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 6rem;
+    .review-card {
+        border: 1px solid #cccccc22;
+        padding: 1rem;
+        margin-bottom: 10px;
+        transition: box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .text-yellow-400 {
+            color: #f6e05e;
+        }
+
+        .text-sm {
+            font-size: 14px;
+        }
+    }
+}
